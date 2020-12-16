@@ -17,7 +17,7 @@ MSBuild.exe "Rhetos.sln" /t:restore /t:rebuild /p:Configuration=%Config% /verbos
 CALL CreateInstallationPackage.bat %Config% /NOPAUSE || GOTO Error0
 
 REM Updating the build version back to "dev" (internal development build), to avoid spamming git history with timestamped prerelease versions.
-REM PowerShell -ExecutionPolicy ByPass .\Tools\Build\ChangeVersion.ps1 %Version% dev || GOTO Error0
+PowerShell -ExecutionPolicy ByPass .\Tools\Build\ChangeVersion.ps1 %Version% dev || GOTO Error0
 
 @REM ================================================
 
